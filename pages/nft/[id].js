@@ -1,0 +1,65 @@
+import { ThirdwebNftMedia, useContract, useContractEvents, useNFT } from "@thirdweb-dev/react";
+import { NFT_CONTRACT_ADDRESS } from "../../const/addresses";
+import {useRouter, router} from 'next/router'
+import style from '../../styles/Home.module.css'
+
+const NFTDetailPage = ()=>{
+    const {id} = useRouter().query;
+    const {contract} = useContract(NFT_CONTRACT_ADDRESS);
+    const {data: nft, isLoading: isLoadingNFT}=useNFT(contract,id);
+    const { data: events, isLoading: isLoadingEvents}= useContractEvents(
+        contract,
+        'Transfer',
+        {
+          queryFilter:{
+            filters:{
+                tokenId: id,
+            },
+            order:"desc",
+
+          }  
+        }
+    )
+    return(
+  <div className={style.contaner}>
+  <h3>NFT Detail Page</h3>
+  <button onClick={()=> router.back()}>Back</button>
+  <h1>{nft?.metadata.name}</h1>
+  {
+    !isLoadingNFT &&(
+       <ThirdwebNftMedia
+        metadata={nft.metadata}
+        width="250px"
+        height="250px"
+       /> 
+    )
+  }
+
+  <div>
+    <h3>Traits:</h3>
+    {nft?.metadata.attributes.map((attribute, index)=>(
+        <div key={index}>
+            <strong>{attribute.trait_type}</strong>: {attribute.value}
+        </div>
+    ))}
+  </div>
+ 
+ <div>
+    <h3>History:</h3>
+    {!isLoadingEvents && (
+        <div>
+        { events.map((event,index)=>(
+            <div key={index}>
+            <strong>From:</strong> {event.data.from} <strong>To:</strong>{event.data.to}
+                </div>
+         )) }
+        </div>
+    )}
+ </div>
+  </div>
+    )
+
+};
+
+
+export default NFTDetailPage;
