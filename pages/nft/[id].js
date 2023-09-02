@@ -2,6 +2,7 @@ import { ThirdwebNftMedia, useContract, useContractEvents, useNFT } from "@third
 import { NFT_CONTRACT_ADDRESS } from "../../const/addresses";
 import {useRouter, router} from 'next/router'
 import style from '../../styles/Home.module.css'
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 const NFTDetailPage = ()=>{
     const {id} = useRouter().query;
@@ -22,30 +23,45 @@ const NFTDetailPage = ()=>{
     )
     return(
   <div className={style.contaner}>
-  <h3>NFT Detail Page</h3>
-  <button onClick={()=> router.back()}>Back</button>
-  <h1>{nft?.metadata.name}</h1>
+  <h3 className={style.dheading} >NFT Detail Page</h3>
+  <div className={style.mname}>
+  <h1  >{nft?.metadata.name}</h1>
+  </div>
+  <div className={style.contanertwo}>
+ 
+ <div className={style.dimage}>
+ <div className={style.dmimage}>
   {
     !isLoadingNFT &&(
        <ThirdwebNftMedia
         metadata={nft.metadata}
-        width="250px"
-        height="250px"
+        width="400px"
+        height="400px"
        /> 
     )
   }
-
+  </div>
+ 
+  </div>
+  <br />
   <div>
-    <h3>Traits:</h3>
+  
+    <div className={style.dData}>
+    <div className={style.mdData}>
     {nft?.metadata.attributes.map((attribute, index)=>(
         <div key={index}>
             <strong>{attribute.trait_type}</strong>: {attribute.value}
         </div>
     ))}
+    </div>
+    </div>
   </div>
- 
+  </div>
  <div>
-    <h3>History:</h3>
+ 
+    <h3 className={style.traits}>History</h3>
+    <div className={style.history}>
+    <div className={style.transaction}>
     {!isLoadingEvents && (
         <div>
         { events.map((event,index)=>(
@@ -53,8 +69,14 @@ const NFTDetailPage = ()=>{
             <strong>From:</strong> {event.data.from} <strong>To:</strong>{event.data.to}
                 </div>
          )) }
-        </div>
+        </div>   
     )}
+    </div>
+    </div>
+ </div>
+ <br /><br /><br /><br />
+<div className={style.back}>
+ <ArrowBackIcon onClick={()=> router.back()}/>
  </div>
   </div>
     )

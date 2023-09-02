@@ -1,21 +1,171 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Oswald&family=Roboto&family=Roboto+Mono:wght@600&display=swap');
 .NFTGrid{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   margin: 0 auto;
-  max-width: 1200px;
+ 
 }
 .NFTCard{
-  background-color: #bac0c8;
   margin: 1rem;
   padding: 1.5rem;
-  text-align: left;
-  color: inherit;
+  text-align: center;
+  color: white;
   text-decoration: none;
-  border: 1px solid white;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  border-radius: 40px;
+  max-width: 250px;
+
+}
+
+.NFTCard img{
+  border-radius: 20px;
+}
+.pagnation{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+  max-width: 1200px;
+  gap: 2rem;
+
+}
+.pagnation svg{
+  color: white;
+  cursor: pointer;
+}
+.input{
+  width: 35px;
+  height: 35px;
+  text-align: center;
   border-radius: 10px;
+  font-size: larger;
+  border: none;
+}
+
+.logo{
+  display: flex;
+  align-items: center;
+  height: 5rem;
+  width: 5rem;
+  position: relative;
+  left: 2rem;
  
-  max-width: 300px;
+}
+.img{
+  border-radius: 50px;
+}
+.heading{
+  color: white;
+  text-transform: uppercase;
+  font-family: 'Oswald', sans-serif;
+font-family: 'Roboto', sans-serif;
+font-family: 'Roboto Mono', monospace;
+font-size: x-large;
+text-align: center;
+
+}
+.contaner{
+  color: white;
+  text-transform: uppercase;
+  font-family: 'Oswald', sans-serif;
+font-family: 'Roboto', sans-serif;
+font-family: 'Roboto Mono', monospace;
+
+}
+
+.contaner img{
+border-radius: 20px;
+
+}
+.dimage{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 600px;
+  
+ 
+}
+.dmimage{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(0, 0, 0);
+  height: 420px;
+  width: 420px;
+  border-radius: 20px;
+  
+ 
+}
+.contanertwo{
+ display: flex;
+ justify-content: space-around;
+
+}
+.dheading{
+  text-transform: uppercase;
+font-size: 50px;
+text-align: center
+
+}
+.mname{
+  width: 200px;
+  text-align: center;
+ 
+}
+.traits{
+  text-transform: uppercase;
+  font-size: 40px;
+  position: relative;
+  left: 3rem;
+  width: 200px;
+  
+}
+.dData{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
+  font-size: xx-large;
+
+  
+}
+.mdData{
+width: 600px;
+
+align-items: center;
+display: flex;
+justify-content: center;
+flex-direction: column;
+border-radius: 30px;
+background-color: rgb(0, 0, 0);
+height: 420px;
+position: relative;
+right: 10rem;
+
+}
+.history{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  
+
+}
+.transaction{
+  width: 850px;
+  text-align: center;
+  border-radius: 30px;
+  background-color: rgb(0, 0, 0); 
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+.back svg{
+  font-size: xx-large;
+  cursor: pointer;
+  width: 50px;
+  margin-left: 2rem;
+
 }

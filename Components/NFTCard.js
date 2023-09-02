@@ -7,7 +7,7 @@ export const NFTCard =({nft})=>{
 <Link href={`/nft/${nft.metadata.id}`}>
    <div className={styles.NFTCard}>
      <ThirdwebNftMedia
-        metadata={nft.metadata}
+        metadata={nft.metadata} 
         width='100%'
         height='100%'
      />
